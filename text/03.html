@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>vue 入门</title>
+</head>
+<body>
+    <div id="root">
+        <!-- 插值表达式  {{msg}} -->
+        <h1>插值表达式：hello {{msg}}</h1>
+
+        <!-- v-text指令 覆盖原有内容 会转义-->
+        <h1 v-text="number">v-text指令：hello {{msg}}</h1> 
+
+        <!-- v-html指令 覆盖原有内容  不会转义-->
+        <h1 v-html="content">v-html指令：hello {{msg}}</h1> 
+
+        <!-- 事件指令 -->
+        <!--  Property or method "alert" is not defined on the instance but referenced during render. -->
+        <h1 v-on:click ="()=>{alert(123)}">v-on:click直接调用原生js：hello {{msg}}</h1>   
+
+        <h1 v-on:click ="this.handleClick">v-on:click调用methods函数：hello {{msg}}</h1>   
+
+        <h1 v-on:click ="this.handleClick1">v-on:click调用methods函数更新数据：{{change}}</h1>   
+        <!-- 简写 -->
+        <h1 @click ="this.handleClick1">v-on:click简写@click调用methods函数更新数据：{{change}}</h1>  
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script>
+        new Vue({
+            el: "#root", 
+            templete: '<h1>{{msg}}</h1>',  
+            data: {  
+                msg: "world",
+                number: "v-text指令：12",
+                content:"v-html指令：<text>嘻嘻</text>",
+                change: "hello world"
+            },
+            methods: { //保存所有事件函数
+                handleClick: function(){
+                    console.log("123");
+                },
+                handleClick1: function(){
+                    this.change = "更改数据！"
+                }
+            }
+        })
+    </script>
+</body>
+</html>

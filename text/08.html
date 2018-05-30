@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>vue 入门</title>
+</head>
+<body>
+    <h6>组件: 页面中的某一部分</h6>
+    <br />
+    <div id="root">
+        <div>
+            <input v-model="inputValue" type="text" />
+            <button @click="addTodolist">提交</button>
+            <ul>
+                <!-- 传递参数content  -->
+                <todo-item v-for="(item,index) of listArr"
+                :key = "index"
+                :content = "item"
+                ></todo-item>
+            </ul>
+            <br />
+            <ul>
+                <todo-item v-for="(value,index) of obj"
+                :key = "index"
+                :content = "value"
+                ></todo-item>
+            </ul>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script>
+        // 创建组件  全局组件
+        Vue.component('todo-item',{
+            props: ['content'],
+            template: '<li>{{content.color}}</li>'
+        })
+        
+        // 局部组件   需要在使用该组件的实例中 components
+        // var TodoItem = {
+        //     template: '<li>item</li>'
+        // }
+
+        new Vue({
+            el: "#root",
+            // components: {  //
+            //     'todo-item': TodoItem
+            // },
+            data: {
+                inputValue: "",
+                listArr: [],
+                obj:[{color:'red',age:18,sex:'girl'},{color:'red',age:18,sex:'girl'}]
+            },
+            methods: {
+                addTodolist: function () {
+                    this.listArr.push(this.inputValue);
+                    this.inputValue = "";
+                }
+            }
+        })
+    </script>
+</body>
+</html>

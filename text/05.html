@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>vue 入门</title>
+</head>
+<body>
+    <h6>vue 中的计算属性和侦听器</h6>
+
+    <div id="root">
+        姓：<input v-model="firstName" type="text" />
+        名：<input v-model="lastName" type="text" />
+        <div>姓名：{{firstName}}{{lastName}}</div>
+
+        <div>计算属性</div>
+        <div>姓名：{{computedName}}</div>
+
+        <div>侦听器</div>
+        <div>{{count}}</div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script>
+        new Vue({
+            el: "#root",
+            data: {
+                firstName: "",
+                lastName: "",
+                count:0,
+                fullCount:0
+            },
+            // 类似于 react 里的 reselect
+            computed: {   //一个属性通过其他属性计算而来
+                computedName: function(){  //不可以与data中kay 重复；只有改变其中任意值时才会调用，否则是用缓存结果
+                    return this.firstName + " " +this.lastName;
+                }
+            },
+            watch: {    //侦听器监听数据变化，一旦发生变化，则执行该属性对应的逻辑，可以监听计算属性
+                firstName: function(){
+                    this.count++;
+                },lastName: function(){
+                    this.count++;
+                },
+                computedName: function(){
+                    this.count++;
+                }
+            }
+        })
+    </script>
+</body>
+</html>

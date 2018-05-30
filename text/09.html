@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>vue 入门</title>
+</head>
+<body>
+    <h6>每个组件都是一个vue 的实例</h6>
+    <h6>没有模板则找到挂载点，将其中的所有dom 标签做为模板</h6>
+    <br />
+    <!-- 挂载点 -->
+    <div id="root">
+        <div>
+            <input v-model="inputValue" type="text" />
+            <button @click="addTodolist">提交</button>
+            <ul>
+                <todo-item v-for="(item,index) of listArr"
+                :key = "index"
+                :content = "item"
+                ></todo-item>
+            </ul>
+            <br />
+            <ul>
+                <todo-item v-for="(value,index) of obj"
+                :key = "index"
+                :content = "value"
+                ></todo-item>
+            </ul>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script>
+        Vue.component('todo-item',{
+            props: ['content'],
+            template: '<li @click = "itemClicked">{{content.color}}</li>',
+            methods:{
+                itemClicked: function(){
+                    console.log("clicked");
+                }
+            }
+        })
+        // 没有模板  找到挂载点，将其中的所有dom 标签做为模板
+        new Vue({
+            el: "#root",
+            data: {
+                inputValue: "",
+                listArr: [],
+                obj:[{color:'red',age:18,sex:'girl'},{color:'red',age:18,sex:'girl'}]
+            },
+            methods: {
+                addTodolist: function () {
+                    this.listArr.push(this.inputValue);
+                    this.inputValue = "";
+                }
+            }
+        })
+    </script>
+</body>
+</html>

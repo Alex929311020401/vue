@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>vue 入门</title>
+</head>
+<body>
+    <h1>属性绑定及双向数据绑定</h1>
+
+    <div id="root">
+        <div title="this is hello world">原生html的title：hello world</div>
+
+        <div v-bind:title="title">v-bind:title=”title“：hello world; data中的 title</div>
+
+        <div v-bind:title="title+(b-a)">v-bind:title=”title+(b-a)“：hello world</div>
+
+        <text>v-bind 可以省略 直接使用 :value</text>
+        <label>v-bind:value="content" content数据不会随着输入改变</label>
+        <input v-bind:value="content"  type="text" placeholder="输入数据放入下面的div"><br />
+        <label>v-model="content" content数据会随着输入改变</label>
+        <input v-model="content"  type="text" placeholder="输入数据放入下面的div">
+        <div>{{content}}</div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script>
+        new Vue({
+            el: "#root",
+            data: {
+                title: "this is hello world",
+                a: 1,
+                b: 2,
+                content: 'this is content'
+
+            }
+        })
+    </script>
+</body>
+</html>

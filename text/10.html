@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <p>真实开发环境使用webpack打包工具，帮助构建大型项目开发目录，在开发完成之后进行打包的操作。</p>
+    <p>自己配置webpack难度较大，vue 官方提供一款脚手架工具即 vue-cli </p>
+    <p><快速构建标准的 vue 项目，同时自带webpack各种配置，可以迅速上手工程级别项目的开发。技术门槛大幅降低，快速进行开发。</p>
+    <h5>vue-cli 的安装及使用</h5>
+    <a href="https://cn.vuejs.org/">官网</a> >> 学习 >> 教程 >> 安装 >> 命令行工具 (CLI) >> <a href="https://github.com/vuejs/vue-docs-zh-cn/tree/master/vue-cli">Vue CLI 的文档</a> 
+
+    <p>CLI 会被全局安装并在终端里提供 vue 命令：</p>
+    <p>npm install -g @vue/cli</p>
+    <p>// 报错 ：Please try running this command again as root/Administrator.</p>
+    <p>// 改用 管理员 模式 sudo npm install  -g @vue/cli 运行 </p>
+
+    <p>vue create my-project      </p>
+    <p>//vue-cli / my-project 文件代码</p>
+    <p>// 可以选择淘宝镜像  Use https://registry.npm.taobao.org for faster installation? No</p>
+    <p>// Please pick a preset: default (babel, eslint)</p>
+    <p>//cd my-project </p>
+    <p>//App running at:</p>
+    <p>//- Local:   http://localhost:8080/ </p>
+    <p>//- Network: http://192.168.1.104:8080/</p>
+
+    <h4>主要文件</h4>
+    <p>主要在 src 文件里编写文件</p>
+    <p>main.js 整个项目的入口文件。挂载点：public 中的 ‘&lt;div id="app"&gt;&lt;/div&gt;’引入组件使用 import App from './App.vue'; </p>
+    <p>app.vue 中三个部分： template、javascript、style；单文件组件，每个vue文件包含了一个组件所需要的所有内容。</p>
+    <p>文件更新保存好后不需要刷新网页 及为所得，项目内值webpack 的 webpack-dev-server 自动刷新 </p>
+    <p>可以大胆的使用 ES6 的语法，脚手架会将 ES6 语法 打包成 ES5 语法；</p>
+
+
+
+</body>
+</html>

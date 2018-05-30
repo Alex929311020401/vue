@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>vue 入门</title>
+</head>
+<body>
+    <h6>v-if,v-show,v-show</h6>
+    <div id="root">
+        <!-- 会将对应元素在dom树中删除 -->
+        <div>v-if 会将对应元素在dom树中删除</div>
+        <div v-if= "show" >hello world</div>
+        <br />
+        <div>v-show 会更改对应元素的 display 属性</div>
+        <div v-show = "show" >hello world</div>
+        <button @click = "toggleClick">toggle</button>
+        <br />
+        <div>v-for 遍历数据: 旧版本：item为数字时，数字项不可重复，报错</div>
+        <br />
+        <ul>
+            <li v-for = "item of list" :key="item">{{item}}</li>
+        </ul>
+        <br />
+        <div>(item,index) of list ,index在需要频繁更新数据时会出问题</div>
+        <ul>
+            <li v-for = "(item,index) of list" :key="index">{{item}}</li>
+        </ul>
+        <br />
+        <div>(遍历的元素value形参,遍历的元素key形参,index形参)</div>
+        <ul>
+            <li v-for = "(index,item,key) in obj" :key="index">数据：{{index}}；index：{{item}}; key: {{key}}</li>
+        </ul>
+
+
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script>
+        new Vue({
+            el: "#root",
+            data: {
+                show: true,
+                list: [1,2,3],
+                obj:{color:'red',age:18,sex:'girl'}  
+            },
+            methods: {
+                toggleClick: function(){
+                    this.show = !this.show;
+                }
+            }
+        })
+    </script>
+</body>
+</html>

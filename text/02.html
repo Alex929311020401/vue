@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>vue 入门</title>
+</head>
+<body>
+    <!-- 模板，挂载点，实例之间的关系 -->
+
+    <div id="root">{{msg}}</div>
+
+    <!-- msg 不在挂载点（el） 直之下 显示{{msg}}-->
+    <div>{{msg}}</div>  
+    <!-- 模板：挂在点内部代码叫模板 -->
+    <div id="root">
+        <h1>哈哈哈</h1>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script>
+        // 实例
+        new Vue({
+            el: "#root", //指定挂载点
+            templete: '<h1>{{msg}}</h1>',  //模板  覆盖html中模板
+            data: {  //数据
+                msg: "hello world"
+            }
+        })
+    </script>
+</body>
+</html>

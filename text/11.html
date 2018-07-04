@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>vue 入门</title>
+</head>
+<body>
+    <h4>当一个 Vue 实例被创建时，它向 Vue 的响应式系统中加入了其 data 对象中能找到的所有的属性。当这些属性的值发生改变时，视图将会产生“响应”，即匹配更新为新的值。</h4>
+    <div id="root">实例数据展示：{{name}}</div>
+    <h4>当这些数据改变时，视图会进行重渲染。值得注意的是只有当实例被创建时 data 中存在的属性才是响应式的。也就是说如果你添加一个新的属性，将不会触发任何视图的更新.需要设置一些初始值</h4>
+    <h4>使用 Object.freeze() 阻止修改现有的属性，也意味着响应系统无法再追踪变化。</h4>
+    <h4>Vue 实例还暴露了一些有用的实例属性与方法。它们都有前缀 $，以便与用户定义的属性区分开来。<a href="https://cn.vuejs.org/v2/api/#实例属性">API 详情</a></h4>
+    <img src="img/vm.jpeg" alt="vm 实例属性及用法" title="vm 实例属性及用法">
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script>
+        // 我们的数据对象
+        let data = {"name":"alex"};
+
+        // 该对象被加入到一个 Vue 实例中
+        let vueObj = new Vue({
+            el: "#root",
+            data: data
+        })
+
+        // 获得这个实例上的属性
+        // 返回源数据中对应的字段
+        console.log(vueObj.a == data.a); // => true
+
+        // 设置属性也会影响到原始数据
+        vueObj.name = "green";       // data.a  == "green"
+
+        // ……反之亦然
+        data.a = 3
+        vueObj.a // => 3
+
+        /*
+        会用到的数据 初始化
+        data: {
+            newTodoText: '',
+            visitCount: 0,
+            hideCompletedTodos: false,
+            todos: [],
+            error: null
+            }
+        */
+    </script>
+</body>
+</html>

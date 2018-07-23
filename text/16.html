@@ -1,23 +1,25 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>vue 入门</title>
+    <title>Class 与 Style 绑定</title>
 </head>
-<body>
-    <div id="root">{{msg}}</div>
 
+<body>
+    <div id="root"></div>
     <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
     <script>
-        let vue = new Vue({
+        new Vue({
             el: "#root",
             data: {
-                msg: "hello world"
+                isActive: true,
+                hasError: false
             }
         });
-        console.log(vue.config);
     </script>
 </body>
+
 </html>

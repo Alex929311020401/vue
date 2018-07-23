@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Class 与 Style 绑定</title>
+</head>
+
+<body>
+    <div id="root">
+        <div v-bind:class="{ active: isActive }">v-bind:class={ active: isActive } ==> active</div>
+        <div class="static" v-bind:class="{ active: isActive, 'text-danger': hasError }">v-bind:class="{ active: isActive, 'text-danger': hasError }" ==> static active</div>
+    </div>
+    <div>
+        参数：
+        <br /> isActive: true,
+        <br /> hasError: false
+    </div>
+
+    <div id="root1">
+        <div v-bind:class="classObject"> v-bind:class="classObject" ==> active</div>
+    </div>
+    <div>
+        参数：
+        <br /> classObject: { active: true, 'text-danger': false }
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script>
+        new Vue({
+            el: "#root",
+            data: {
+                isActive: true,
+                hasError: false
+            }
+        });
+        new Vue({
+            el: "#root1",
+            data: {
+                classObject: {
+                    active: true,
+                    'text-danger': false
+                }
+            }
+        })
+    </script>
+</body>
+
+</html>

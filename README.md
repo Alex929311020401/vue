@@ -3,6 +3,9 @@
 <!-- 开发环境版本，包含了用帮助的命令行警告 -->
 <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
 ```
+
+![image](https://cn.vuejs.org/images/lifecycle.png)
+
 >02.html: 模板，挂载点，实例之间的关系 
 
 >03.html: 插值表达式 / v-text指令/v-html指令 / 事件指令 
@@ -27,4 +30,7 @@
 
 >13.html: 模板语法 
 
->13.html: 计算属性和侦听器 
+>14.html: 计算属性和侦听器 
+
+
+
